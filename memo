@@ -1,0 +1,52 @@
+// Variables
+const button_play = document.getElementById("play")
+const button_skip = document.getElementById("skip")
+const button_previous = document.getElementById("previous")
+const loger = document.getElementById("loger")
+let audios = ["src/ballwoyou.mp3", "src/mariotypebeat.mp3"];
+let sound = new Audio(audios[0])
+
+
+// Actions 
+button_play.addEventListener('click', btnplay);
+button_skip.addEventListener('click', btnskip);
+button_previous.addEventListener('click', btnprevious);
+
+// Fonctions
+function initialisation() {
+    sound.pause()
+    sound.currentTime = 0;
+}
+function btnplay() {
+    if (button_play.value === 'Play') {
+        sound.play();
+        button_play.value = "Pause";
+        loger.textContent = "Action effectué : Play"
+    } else {                                        //              BOUTON PLAY - PAUSE 
+        button_play.value = "Play";
+        sound.pause();
+        loger.textContent = "Action effectué : Pause"
+    }
+}
+
+function btnskip() {
+    initialisation();
+    if (sound === audios[0]) {
+        sound = new Audio(audios[1])
+        sound.play();
+        console.log(audios)
+    } else {
+        sound = new Audio(audios[0])
+        sound.play();
+        console.log(audios)
+    }
+    loger.textContent = "Action effectué : Skip";
+}
+
+function btnprevious() {
+        initialisation();
+        sound = new Audio(audios[1])
+        sound.play();
+        console.log(sound)
+    loger.textContent = "Action effectué : Previous"
+}
