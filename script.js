@@ -28,7 +28,6 @@ function btnplay() {
         sound.play()
         button_play.value = "Pause";
         document.getElementById('play').style.backgroundImage="url(/src/icon/pause.png)"
-        giveInformations()
     } else {                                        //              BOUTON PLAY - PAUSE 
         button_play.value = "Play";
         sound.pause();
@@ -58,16 +57,18 @@ function btnskip() {
         ++number
     }
 
-sound = new Audio(playlist[number])                     // BOUTON SKIP - Fonctionnel.
+    sound = new Audio(playlist[number])                     // BOUTON SKIP - Fonctionnel.
+    sound.play();
 
-    if (can == 1) {
-        sound.play();
-    } else if(can == 0) {
-        sound.pause();
-    }
+    // if (can == 1) {
+    //     sound.play();
+    // } else if(can == 0) {
+    //     sound.pause();
+    // }
 
+    button_play.value = "Pause";
+    document.getElementById('play').style.backgroundImage="url(/src/icon/pause.png)"
     console.log(number)
-    giveInformations()
     }
 
 
@@ -80,15 +81,10 @@ function btnprevious() {
         number = playlist.length
         sound.play()
     } else {                                    // BOUTON RETOUR - Fonctionnel.
-    number -= 1
-    sound = new Audio(playlist[number])
-    sound.play()
+        number -= 1
+        sound = new Audio(playlist[number])
+        sound.play()
     }
-}
-
-function giveInformations() {
-    ID3.loadTags("filename.mp3", function() {
-        var tags = ID3.getAllTags(sound);
-        alert(tags.artist + " - " + tags.title + ", " + tags.album);
-    });
+    button_play.value = "Pause";
+    document.getElementById('play').style.backgroundImage="url(/src/icon/pause.png)"
 }
