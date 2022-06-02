@@ -1,0 +1,70 @@
+body {
+    background-image: url(./src/background/background.png);
+}
+
+#player {
+    background-color: white;
+    width: 250px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5%;
+    box-shadow: 4px 6px 8px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+#play {
+    color: rgba(0, 0, 0, 0.0);
+    background: url(/src/icon/play-button.svg);
+    /* box-shadow: 4px 4px 6px black; */
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: 0px none;
+}
+
+#previous {
+    color: rgba(0, 0, 0, 0.0);
+    background: url(/src/icon/previous-button.svg);
+    /* box-shadow: 4px 4px 6px black; */
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: 0px none;
+}
+
+#skip {
+    color: rgba(0, 0, 0, 0.0);
+    /* box-shadow: 4px 4px 6px black; */
+    background: url(/src/icon/skip-button.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: 0px none;
+}
+
+#skip:hover, #previous:hover, #play:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#img_cover{
+    height: 200px;
+    width: 200px;
+    margin-left: 10%;
+    margin-top: 12%;
+    border-radius: 5%;
+    box-shadow: 4px 4px 6px;
+} 
+
+#namesong {
+    text-align: center;
+    font-family: 'Poppins', 'sans-serif';
+}

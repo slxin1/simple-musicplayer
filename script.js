@@ -2,11 +2,12 @@
 const button_play = document.getElementById("play")
 const button_skip = document.getElementById("skip")
 const button_previous = document.getElementById("previous")
-const loger = document.getElementById("loger")
+const song_name = document.getElementById("namesong")
 let playlist = ["src/ballwoyou.mp3", "src/mariotypebeat.mp3", "src/craveyoubaba.mp3", "src/spacecadet.mp3"];
 let sound = new Audio(playlist[0])
 let number = 0
 let can = 0
+
 
 
 // Actions 
@@ -23,13 +24,15 @@ function initialisation() {
 }
 function btnplay() {
     if (button_play.value === 'Play') {
+
         sound.play()
         button_play.value = "Pause";
-        loger.textContent = "Action effectué : Play"
+        document.getElementById('play').style.backgroundImage="url(/src/icon/pause.png)"
+        giveInformations()
     } else {                                        //              BOUTON PLAY - PAUSE 
         button_play.value = "Play";
         sound.pause();
-        loger.textContent = "Action effectué : Pause"
+        document.getElementById('play').style.backgroundImage="url(/src/icon/play-button.svg)"
     }
 }
 
@@ -64,7 +67,7 @@ sound = new Audio(playlist[number])                     // BOUTON SKIP - Fonctio
     }
 
     console.log(number)
-    loger.textContent = "Action effectué : Skip";
+    giveInformations()
     }
 
 
@@ -81,6 +84,11 @@ function btnprevious() {
     sound = new Audio(playlist[number])
     sound.play()
     }
+}
 
-    loger.textContent = "Action effectué : Previous"
+function giveInformations() {
+    ID3.loadTags("filename.mp3", function() {
+        var tags = ID3.getAllTags(sound);
+        alert(tags.artist + " - " + tags.title + ", " + tags.album);
+    });
 }
