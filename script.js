@@ -13,6 +13,8 @@ let can = 0
 button_play.addEventListener('click', btnplay);
 button_skip.addEventListener('click', btnskip);
 button_previous.addEventListener('click', btnprevious);
+// sound.addEventListener('ended', btnskip);
+
 
 // Fonctions
 function initialisation() {
@@ -53,7 +55,7 @@ function btnskip() {
         ++number
     }
 
-sound = new Audio(playlist[number])
+sound = new Audio(playlist[number])                     // BOUTON SKIP - Fonctionnel.
 
     if (can == 1) {
         sound.play();
@@ -63,7 +65,8 @@ sound = new Audio(playlist[number])
 
     console.log(number)
     loger.textContent = "Action effectué : Skip";
-}
+    }
+
 
 function btnprevious() {
     initialisation();
@@ -73,7 +76,7 @@ function btnprevious() {
     if (number == 0) {
         number = playlist.length
         sound.play()
-    } else {
+    } else {                                    // BOUTON RETOUR - Fonctionnel.
     number -= 1
     sound = new Audio(playlist[number])
     sound.play()
